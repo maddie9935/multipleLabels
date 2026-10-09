@@ -1,0 +1,134 @@
+:root {
+  --water: #0a5c6e;
+  --water-deep: #073f4c;
+  --tile: #f4f8f9;
+  --ink: #17262b;
+  --ink-soft: #4a5f66;
+  --rope-red: #c8322b;
+  --rope-white: #ffffff;
+  --focus: #e8a400;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--tile); }
+
+body {
+  margin: 0;
+  font-family: "Lexend", "Segoe UI", Verdana, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  background: var(--ink);
+  color: #fff;
+  padding: .5rem .9rem;
+  z-index: 10;
+}
+.skip-link:focus { top: 1rem; }
+
+/* Header with a lane-rope stripe along the bottom */
+.site-header {
+  background: var(--water);
+  color: #fff;
+  position: relative;
+  padding-bottom: 10px;
+}
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 10px;
+  background: repeating-linear-gradient(to right,
+    var(--rope-red) 0 22px, var(--rope-white) 22px 44px);
+}
+.site-header .inner {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1.1rem 1.25rem 1.3rem;
+}
+.site-name {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 5vw, 2.5rem);
+  line-height: 1.15;
+  margin: 0 0 .5rem;
+  color: var(--water-deep);
+}
+p { margin: 0 0 1rem; max-width: 36rem; }
+.lede { color: var(--ink-soft); }
+
+/* The form */
+form {
+  margin-top: 1.75rem;
+  max-width: 26rem;
+  background: #fff;
+  border: 2px solid #cfe0e4;
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+.field { margin-bottom: 1.25rem; }
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: .3rem;
+}
+input[type="text"] {
+  display: block;
+  width: 100%;
+  font: inherit;
+  padding: .6rem .75rem;
+  border: 2px solid #7e959c;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+}
+button {
+  font: inherit;
+  font-weight: 600;
+  padding: .65rem 1.4rem;
+  border: 0;
+  border-radius: 6px;
+  background: var(--water);
+  color: #fff;
+  cursor: pointer;
+}
+button:hover { background: var(--water-deep); }
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.status {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--water-deep);
+}
+.status:empty { display: none; }
+
+footer {
+  max-width: 44rem;
+  margin: 0 auto 2.5rem;
+  padding: 1.25rem;
+  border-top: 1px solid #cfe0e4;
+  font-size: .95rem;
+  color: var(--ink-soft);
+}
+footer a { color: var(--water); }
